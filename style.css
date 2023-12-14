@@ -142,3 +142,27 @@ button {
     font-size: 30px;
     background-image: linear-gradient(52deg, blue, red);
 }
+
+.points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.point {
+    border: 1px solid black;
+    background-color: rgb(0, 0, 0, 0.3);
+    padding: 30px;    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointButton {
+    padding: 30px;
+    font-size: 40px;
+    font-weight: 600;
+}

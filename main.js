@@ -2,7 +2,8 @@
 let loginPage = document.querySelector(".login")
 let pageOne = document.querySelector(".pageOne")
 let coursePage = document.querySelector(".courseContent")
-
+let pointPage = document.querySelector('.points')
+pointPage.style.display = 'none'
 pageOne.style.display = 'none'
 coursePage.style.display = 'none'
 
@@ -30,7 +31,6 @@ function textAnimation (anchor, text, size) {
     )
 }
 function turn () {a == 0 ? (textAnimation(headAnchor, headText, headText.length), card.forEach((x) => x.style.animationName = 'doda')): false ;}
-
 // Form submission
 function submit () {
     let name = document.querySelector('#name').value
@@ -50,6 +50,14 @@ function skip () {
     textAnimation(titleAnchor, titleText, titleText.length)
 }
 // Quiz--------------------
+let pointsS = 0; // The session points
+let pointSession = document.querySelector('.pointSesion')
+let pointsT = 0; // The total points
+let pointTotal = document.querySelector('.pointTotal')
+
+let pointDisplay = document.querySelector('.pointDisplay')
+pointDisplay.innerText = `You have ${pointsT} points`
+
 // Dom Links
 let question = document.querySelector("#question")
 let questionImage = document.querySelector("#questionImage")
@@ -118,8 +126,11 @@ function answersFunction(obj) {
                 x.style.backgroundColor = 'green'
                 iQ++
                 iA++
+                pointsS += 10;
                 if (iQ == Object.keys(mathQuestionObject).length) {
-                    console.log('stop')
+                    setTimeout(() => {
+                        quizEnd()
+                    }, 600)
                 }
                 else {
                     setTimeout(() => {
@@ -135,7 +146,9 @@ function answersFunction(obj) {
                 iQ++
                 iA++
                 if (iQ == Object.keys(mathQuestionObject).length) {
-                    console.log('stop')
+                    setTimeout(() => {
+                        quizEnd()
+                    }, 600)
                 }
                 else {
                     setTimeout(() => {
@@ -148,5 +161,20 @@ function answersFunction(obj) {
         })
     })
 }
-// Finding right and wrong answers
-
+// Ending the quiz
+function quizEnd() {
+    iQ = 0
+    iA = 0
+    pointsT += pointsS
+    coursePage.style.display = 'none'
+    pointPage.style.display = 'contents'
+    pointSession.innerText = `You won ${pointsS} points in this round`
+    pointTotal.innerText = `In total you have ${pointsT}`
+    pointDisplay.innerText = `You have ${pointsT} points`
+}
+function backButton() {
+    pageOne.style.display = 'contents'
+    pointPage.style.display = 'none'
+    pointsS = 0
+}
+// Working

@@ -8,6 +8,7 @@
     <script src="main.js" async></script>
   </head>
   <body>
+    <!-- Login Page -->
     <div class="login">
       <h1>Hello what is your name</h1>
       <input
@@ -20,11 +21,13 @@
       <button onclick="submit()"><h2>Submit</h2></button>
       <button onclick="skip()"><h2>Skip</h2></button>
     </div>
+    <!-- Main Page -->
     <div class="pageOne">
       <div class="mainContent">
         <div class="welcomeText">
           <h1 id="titleText"></h1>
           <h2 id="headText"></h2>
+          <h2 class="pointDisplay"></h2>
         </div>
         <br />
         <h2>Chose from one of the Quizzes</h2>
@@ -38,12 +41,21 @@
         </div>
       </div>
     </div>
+    <!-- Quiz page -->
     <div class="courseContent">
       <div class="questions">
         <h2 id="question">Math question nr 1</h2>
         <img id="questionImage" src="" alt="" />
       </div>
       <div class="answers"></div>
+    </div>
+    <!-- Points Page -->
+    <div class="points">
+      <div class="point">
+        <h2 class="pointSesion"></h2>
+        <h2 class="pointTotal"></h2>
+        <button onclick="backButton()" class="pointButton">Back</button>
+      </div>
     </div>
   </body>
 </html>
