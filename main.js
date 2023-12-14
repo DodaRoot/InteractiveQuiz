@@ -4,7 +4,7 @@ let pageOne = document.querySelector(".pageOne")
 let coursePage = document.querySelector(".courseContent")
 
 pageOne.style.display = 'none'
-// coursePage.style.display = 'none'
+coursePage.style.display = 'none'
 
 // Flashy animated text at mainContent of website
 let titleAnchor = document.querySelector("#titleText") 
@@ -49,12 +49,11 @@ function skip () {
     pageOne.style.display = 'contents'
     textAnimation(titleAnchor, titleText, titleText.length)
 }
-
 // Quiz--------------------
 // Dom Links
 let question = document.querySelector("#question")
 let questionImage = document.querySelector("#questionImage")
-let answers = document.querySelectorAll(".answer")
+let answers = document.querySelector(".answers")
 let typeOfQuestions;
 let typeOfAnswers;
 // Questions and answers
@@ -67,48 +66,87 @@ let mathQuestionObject = {
 let mathAnswerObject = {
     0 : ['32', '55', '78', '31'],
     1 : ['111', '234', '442', '87'],
-    2 : ['1345', '1332', '1323', '1198'] 
+    2 : ['1345', '1332', '1323', '1198'],
 }
-function turnMath() {
+function mathQuiz() {
     typeOfQuestions = mathQuestionObject;
     typeOfAnswers = mathAnswerObject;
     questionsFunction(typeOfQuestions)
+    pageOne.style.display = 'none'
+    coursePage.style.display = 'contents'
 }
+// Geography ---
+
 // Quiz Logic
 let iQ = 0 // Index of the question
 function questionsFunction(obj) {
     question.innerText = obj[iQ][0]
     questionImage.src = obj[iQ][1]
-    answersFunction(typeOfAnswers)
+    appendAnswers()
 }
+let answer;
+let ans
+// Appending the quiz buttons
+function appendAnswers() {
+    if (remove == true) {
+        answer.forEach((x) => {
+            x.remove(x)
+            x.removeAttribute('class', 'answer')
+        })
+    }
+    for (let i = 0; i < 4; i++) {
+        ans = document.createElement('div')
+        ans.innerText = 'doda'
+        answers.appendChild(ans)
+        ans.setAttribute('class', 'answer')
+        answer = document.querySelectorAll('.answer')
+    }
+    answersFunction(typeOfAnswers) 
+}
+// Removing the quiz buttons
+let remove;
+// Populating the quiz buttons with answers
 let iA = 0 // Index of the answer
 function answersFunction(obj) {
     let i = 0
-    answers.forEach((x) => {
+    answer.forEach((x) => {
         x.innerText = obj[iA][i]
         i++
-    })
-    answers.forEach((x) => {
         x.addEventListener('click', () => {
             if (x.innerText === typeOfQuestions[iQ][2]) {
-                console.log('right')
                 x.style.backgroundImage = 'none'
                 x.style.backgroundColor = 'green'
                 iQ++
                 iA++
-                setTimeout(() => {
-                    questionsFunction(typeOfQuestions)
-                    reset()
-                }, 500)
+                if (iQ == Object.keys(mathQuestionObject).length) {
+                    console.log('stop')
+                }
+                else {
+                    setTimeout(() => {
+                        remove = true
+                        appendAnswers()
+                        questionsFunction(typeOfQuestions)
+                    }, 500)
+                }
+            }
+            else {
+                x.style.backgroundImage = 'none'
+                x.style.backgroundColor = 'red'
+                iQ++
+                iA++
+                if (iQ == Object.keys(mathQuestionObject).length) {
+                    console.log('stop')
+                }
+                else {
+                    setTimeout(() => {
+                        remove = true
+                        appendAnswers()
+                        questionsFunction(typeOfQuestions)
+                    }, 500)
+                }
             }
         })
     })
 }
-function reset () {
-    answers.forEach((x) => {
-        x.style.backgroundImage = 'linear-gradient(52deg, blue, red)';
-    })
-}
-// WORKING
-loginPage.style.display = 'none'
-turnMath()
+// Finding right and wrong answers
+
