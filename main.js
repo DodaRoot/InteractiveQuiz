@@ -59,6 +59,7 @@ let pointDisplay = document.querySelector('.pointDisplay')
 pointDisplay.innerText = `You have ${pointsT} points`
 
 // Dom Links
+let questions = document.querySelector('.questions')
 let question = document.querySelector("#question")
 let questionImage = document.querySelector("#questionImage")
 let answers = document.querySelector(".answers")
@@ -70,13 +71,18 @@ let mathQuestionObject = {
     0 : ['What is 3 + 4 * 7', 'images/Questions/Math-Question1.png', '31'],
     1 : ['What is 344 - 233', 'images/Questions/Math-Question2.png', '111'],
     2 : ['What is 199 + 999', 'images/Questions/Math-Question3.png', '1198'],
+    3 : ['What is 67 * 2 - 3', 'images/Questions/Math-Question4.png', '131'],
+    4 : ['What is 987 - 23', 'images/Questions/Math-Question5.png', '964'],
 }
 let mathAnswerObject = {
     0 : ['32', '55', '78', '31'],
     1 : ['111', '234', '442', '87'],
     2 : ['1345', '1332', '1323', '1198'],
+    3 : ['120', '100', '131', '63'],
+    4 : ['234', '964', '980', '951'],
 }
 function mathQuiz() {
+    questions.style.backgroundImage = 'url(images/math.jpg)';
     typeOfQuestions = mathQuestionObject;
     typeOfAnswers = mathAnswerObject;
     questionsFunction(typeOfQuestions)
@@ -84,7 +90,51 @@ function mathQuiz() {
     coursePage.style.display = 'contents'
 }
 // Geography ---
-
+let geoQuestionObject = {
+    0 : ['What country has this flag', 'images/Questions/Geo-Question1.png', 'Italy'],
+    1 : ['Who does this map belong to', 'images/Questions/Geo-Question2.png', 'Albania'],
+    2 : ['What country has this flag', 'images/Questions/Geo-Question3.png', 'Germany'],
+    3 : ['Who does this map belong to', 'images/Questions/Geo-Question4.png', 'America'],
+    4 : ['What country has this flag', 'images/Questions/Geo-Question5.png', 'Sweden'],
+}
+let geoAnswerObject = {
+    0 : ['Hungary', 'Italy', 'Ireland', 'USA'],
+    1 : ['Italy', 'Israel', 'Albania', 'Bosnia'],
+    2 : ['Germany', 'Sweden', 'Ireland', 'Denmark'],
+    3 : ['Holland', 'Germany', 'Bosnia', 'America'],
+    4 : ['Germany', 'Sweden', 'Austria', 'Holland'],
+}
+function geoQuiz() {
+    questions.style.backgroundImage = 'url(images/geo.jpg)';
+    typeOfQuestions = geoQuestionObject;
+    typeOfAnswers = geoAnswerObject;
+    questionsFunction(typeOfQuestions)
+    pageOne.style.display = 'none'
+    coursePage.style.display = 'contents'
+}
+// History quiz
+let histQuestionObject = {
+    0 : ['When did Skenderbe die', 'images/Questions/Hist-Question1.png', '1468'],
+    1 : ['Who was Kosovas first president', 'images/Questions/Hist-Question2.png', 'Ibrahim Rugova'],
+    2 : ['Who was Enver Hoxha', 'images/Questions/Hist-Question3.png', 'Dictator'],
+    3 : ['Who was Julius Caesar', 'images/Questions/Hist-Question4.png', 'Emperor of Rome'],
+    4 : ['Who built the colosseum', 'images/Questions/Hist-Question5.png', 'Romans'],
+}
+let histAnswerObject = {
+    0 : ['1398', '1508', '1468', '1434'],
+    1 : ['Ibrahim Rugova', 'Hashim Thaqi', 'Albin Kurti', 'Edi Rama'],
+    2 : ['President', 'King', 'Waiter', 'Dictator'],
+    3 : ['Emperor of Rome', 'Priest', 'Slave', 'Soldier'],
+    4 : ['Germans', 'Romans', 'Albanians', 'Italians'],
+}
+function histQuiz() {
+    questions.style.backgroundImage = 'url(images/hist.jpg)';
+    typeOfQuestions = histQuestionObject;
+    typeOfAnswers = histAnswerObject;
+    questionsFunction(typeOfQuestions)
+    pageOne.style.display = 'none'
+    coursePage.style.display = 'contents'
+}
 // Quiz Logic
 let iQ = 0 // Index of the question
 function questionsFunction(obj) {
