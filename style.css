@@ -197,4 +197,27 @@ button {
     h2 {
         font-size: 18px;
     }
+    .questions {
+        padding: 10px;
+        height: 300px;
+        text-align: center;
+    }
+    #questionImage {
+        width: 250px;
+        height: 130px;
+    }
+    .answers {
+        margin-top: 80px;
+    }
+    .answer {
+        margin: 10px;
+        width: 140px;
+        height: 70px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .point {
+        margin-top: 40%;
+        padding: 30px;    
+    }
 }
