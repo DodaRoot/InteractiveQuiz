@@ -135,6 +135,29 @@ function histQuiz() {
     pageOne.style.display = 'none'
     coursePage.style.display = 'contents'
 }
+// Biology Quiz
+let bioQuestionObject = {
+    0 : ['What is the natural compound present in green plants that gives them their colour?', 'images/Questions/Bio-Question1.png', 'Chlorophyll'],
+    1 : ['Where would one find the smallest bone in the human body?', 'images/Questions/Bio-Question2.png', 'The ear'],
+    2 : ['What is the biggest animal on the planet?', 'images/Questions/Bio-Question3.png', 'The Blue Whale'],
+    3 : ['What is the largest bone in the human body?', 'images/Questions/Bio-Question4.png', 'Femur'],
+    4 : ['What is the process called when a caterpillar develops into a butterfly?', 'images/Questions/Bio-Question5.png', 'Metamorphosis'],
+}
+let bioAnswerObject = {
+    0 : ['Dodush', 'Chlorine', 'Chlorophyll', 'Basiliosin'],
+    1 : ['The ear', 'The brain', 'The legs', 'The hands'],
+    2 : ['Giraffe', 'Brontosaurus', 'Elephant', 'The Blue Whale'],
+    3 : ['Felin', 'Femur', 'Fllamaster', 'Klorine'],
+    4 : ['Metamorphosis', 'Fotosineza', 'FotoTeTezja', 'Chlorine'],
+}
+function bioQuiz() {
+    questions.style.backgroundImage = 'url(images/bio.png)';
+    typeOfQuestions = bioQuestionObject;
+    typeOfAnswers = bioAnswerObject;
+    questionsFunction(typeOfQuestions)
+    pageOne.style.display = 'none'
+    coursePage.style.display = 'contents'
+}
 // Quiz Logic
 let iQ = 0 // Index of the question
 function questionsFunction(obj) {
@@ -154,7 +177,6 @@ function appendAnswers() {
     }
     for (let i = 0; i < 4; i++) {
         ans = document.createElement('div')
-        ans.innerText = 'doda'
         answers.appendChild(ans)
         ans.setAttribute('class', 'answer')
         answer = document.querySelectorAll('.answer')

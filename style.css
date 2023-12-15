@@ -101,8 +101,8 @@ button {
 #cardGeog{
     background-image: url(images/geo.jpg);
 }
-#cardCode{
-    background-image: url(images/code.jpg);
+#cardBio{
+    background-image: url(images/bio.png);
 }
 #cardHist{
     background-image: url(images/hist.jpg);
@@ -119,6 +119,11 @@ button {
     background-size: cover;
     height: 400px;
     text-shadow: 2px 5px  2px black;
+}
+
+#questionImage {
+    width: 350px;
+    height: 230px;
 }
 
 .questions img {
