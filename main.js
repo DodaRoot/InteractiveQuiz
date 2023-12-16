@@ -95,14 +95,14 @@ let geoQuestionObject = {
     1 : ['Who does this map belong to', 'images/Questions/Geo-Question2.png', 'Albania'],
     2 : ['What country has this flag', 'images/Questions/Geo-Question3.png', 'Germany'],
     3 : ['Who does this map belong to', 'images/Questions/Geo-Question4.png', 'America'],
-    4 : ['What country has this flag', 'images/Questions/Geo-Question5.png', 'Sweden'],
+    4 : ['What country has this flag', 'images/Questions/Geo-Question5.png', 'Switzerland'],
 }
 let geoAnswerObject = {
     0 : ['Hungary', 'Italy', 'Ireland', 'USA'],
     1 : ['Italy', 'Israel', 'Albania', 'Bosnia'],
     2 : ['Germany', 'Sweden', 'Ireland', 'Denmark'],
     3 : ['Holland', 'Germany', 'Bosnia', 'America'],
-    4 : ['Germany', 'Sweden', 'Austria', 'Holland'],
+    4 : ['Germany', 'Switzerland', 'Austria', 'Holland'],
 }
 function geoQuiz() {
     questions.style.backgroundImage = 'url(images/geo.jpg)';
