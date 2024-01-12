@@ -241,7 +241,7 @@ function quizEnd() {
     coursePage.style.display = 'none'
     pointPage.style.display = 'contents'
     pointSession.innerText = `You won ${pointsS} points in this round`
-    pointTotal.innerText = `In total you have ${pointsT}`
+    pointTotal.innerText = `In total you have ${pointsT} points`
     pointDisplay.innerText = `You have ${pointsT} points`
 }
 function backButton() {
@@ -249,4 +249,3 @@ function backButton() {
     pointPage.style.display = 'none'
     pointsS = 0
 }
-// Working
